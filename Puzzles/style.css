@@ -32,8 +32,13 @@ body {
 	.navbar-brand {
 	  padding: 15px !important;
 	  font-size: 1.8em !important;
-			
+			color: #b05945 !important;
+			font-weight: bold;
 	}
+	.navbar {
+		background-color: #ffedb5 !important;
+		}
+		
   
 	.btn-lg {
 	  width: 100% !important;
@@ -58,6 +63,7 @@ body {
     display: flex;
     justify-content: center;
     width: 100%;
+				margin-top: 10px;
 				}
 	
 	h1 {
