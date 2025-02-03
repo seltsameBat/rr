@@ -18,68 +18,79 @@ body {
   }
   
   /* Mobile fixes */
-  @media (max-width: 767px) {
-	 html, body {
-height: 100vh !important;
-overflow: hidden !important;
-display: flex;
-flex-direction: column;
-justify-content: space-between; / Distributes space properly */
-}
-	  
-	.grid__item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  height: 40vh !important ; /* Full height */
-  padding: 5px 0 !important;
-  min-height: unset !important;
-  margin: 5px auto !important;
-}
-  
-	.navbar-brand {
-	  padding: 5px !important;
-	  font-size: 1.8em !important;
-			color: #ffedb5 !important;
-			font-weight: bold;
-	}
-		
-  .btn-lg {
-max-width: 180px !important;
-padding: 8px !important;
-}
-  
-	.glyphicon-star {
-	  font-size: 0.7em;
-	  margin: 0 5px;
-	}
-  
-.rows {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    padding: 10px !important;
-    height: 30vh !important; ;
-	
-  }
+@media (max-width: 767px) {
+    /* Ensure full screen is used without extra space */
+    html, body {
+        height: 100vh !important;
+        overflow: hidden !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
 
-.button-container {
-display: flex;
-justify-content: center;
-width: 100%;
-margin-top: 10px !important;
+    /* Navbar adjustments */
+    .navbar {
+        min-height: 35px !important;
+        padding: 5px !important;
+    }
+
+    .navbar-brand {
+        padding: 5px !important;
+        font-size: 1.8em !important;
+        color: #ffedb5 !important;
+        font-weight: bold;
+    }
+
+    /* Puzzle title section */
+    .grid__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 30vh !important; /* Adjusted to avoid excess space */
+        padding: 5px 0 !important;
+        min-height: unset !important;
+        margin: 5px auto !important;
+    }
+
+    /* Sections (About, Start) */
+    .rows {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        height: 25vh !important; /* Adjusted to prevent scrolling */
+        padding: 5px !important;
+    }
+
+    /* Button container ensuring visibility */
+    .button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: auto !important;
+    }
+
+    /* Button styling */
+    .btn-lg {
+        max-width: 180px !important;
+        padding: 8px !important;
+    }
+
+    /* Star icons in headings */
+    .glyphicon-star {
+        font-size: 0.7em;
+        margin: 0 5px;
+    }
+
+    /* Adjust heading sizes for mobile */
+    h1 {
+        font-size: 1.8em !important;
+        margin: 5px 0 !important;
+    }
 }
-	
-	h1 {
-	  font-size: 1.8em !important;
-	  margin: 5px 0 !important;
-	}
-.navbar {
-min-height: 40px !important;
-padding: 5px !important;
-}	  
-  }
