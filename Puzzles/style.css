@@ -20,19 +20,19 @@ body {
   /* Mobile fixes */
   @media (max-width: 767px) {
 	.grid__item {
-	  height: auto !important;
-	  min-height: 300px !important;
-	  padding: 25% 0 40px 0 !important;
-	  margin: 10px !important;
-	  -webkit-transform-style: preserve-3d;
-	  transform-style: preserve-3d;
-	  padding-top: 25% !important; /* 👈 NEW */
-	  align-items: flex-start !important; /* 👈 NEW */
-	}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh; /* Full height */
+  padding: 0 20px;
+}
   
 	.navbar-brand {
 	  padding: 15px !important;
 	  font-size: 1.8em !important;
+			
 	}
   
 	.btn-lg {
@@ -46,9 +46,19 @@ body {
 	  margin: 0 5px;
 	}
   
-	.rows {
-	  padding: 20px 15px !important;
-	}
+.rows {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+				}
 	
 	h1 {
 	  font-size: 1.8em !important;
