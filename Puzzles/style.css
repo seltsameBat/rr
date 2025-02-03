@@ -44,10 +44,9 @@ overflow: hidden !important}
 		
   
 	.btn-lg {
-	  width: 100% !important;
-	  max-width: 250px !important;
-	  padding: 12px !important;
-	}
+max-width: 150px !important;
+padding: 6px !important;
+}
   
 	.glyphicon-star {
 	  font-size: 0.7em;
