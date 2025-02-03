@@ -19,9 +19,13 @@ body {
   
   /* Mobile fixes */
   @media (max-width: 767px) {
-	  html, body {
+	 html, body {
 height: 100vh !important;
-overflow: hidden !important}
+overflow: hidden !important;
+display: flex;
+flex-direction: column;
+justify-content: space-between; / Distributes space properly */
+}
 	  
 	.grid__item {
   display: flex;
@@ -29,8 +33,8 @@ overflow: hidden !important}
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 50vh !important; ; /* Full height */
-  padding: 10px 0 !important;
+  height: 40vh !important ; /* Full height */
+  padding: 5px 0 !important;
   min-height: unset !important;
   margin: 5px auto !important;
 }
@@ -42,10 +46,9 @@ overflow: hidden !important}
 			font-weight: bold;
 	}
 		
-  
-	.btn-lg {
-max-width: 150px !important;
-padding: 6px !important;
+  .btn-lg {
+max-width: 180px !important;
+padding: 8px !important;
 }
   
 	.glyphicon-star {
@@ -59,17 +62,17 @@ padding: 6px !important;
     align-items: center;
     text-align: center;
     justify-content: center;
-    padding:  5px !important;
-    height: 25vh !important;
+    padding: 10px !important;
+    height: 30vh !important; ;
 	
   }
 
-  .button-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-	margin-top: 0 !important;
-				}
+.button-container {
+display: flex;
+justify-content: center;
+width: 100%;
+margin-top: 10px !important;
+}
 	
 	h1 {
 	  font-size: 1.8em !important;
