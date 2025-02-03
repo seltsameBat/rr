@@ -19,18 +19,19 @@ body {
   
   /* Mobile fixes */
 @media (max-width: 767px) {
-    /* Allow minimal scrolling if needed */
+    /* Reduce font size and layout to fit everything */
     html, body {
         height: 100vh !important;
-        overflow-y: auto !important; /* Allow a tiny bit of scrolling */
+        overflow: hidden !important;  /* Prevent scrolling */
         display: flex !important;
         flex-direction: column !important;
-        justify-content: space-between !important;
+        justify-content: flex-start !important; /* Align everything at the top */
         margin: 0 !important;
         padding: 0 !important;
+        font-size: 0.9em !important; /* Reduce the base font size */
     }
 
-    /* Navbar */
+    /* Navbar styling */
     .navbar {
         min-height: 35px !important;
         padding: 5px !important;
@@ -38,32 +39,32 @@ body {
 
     .navbar-brand {
         padding: 5px !important;
-        font-size: 1.8em !important;
+        font-size: 1.4em !important; /* Reduced font size */
         color: #ffedb5 !important;
         font-weight: bold !important;
     }
 
-    /* Puzzle title section */
+    /* Grid item adjustment for fitting in smaller screens */
     .grid__item {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
         text-align: center !important;
-        height: 27vh !important; /* Reduced a little */
+        height: 25vh !important;  /* Smaller height */
         padding: 5px 0 !important;
         min-height: unset !important;
         margin: 5px auto !important;
     }
 
-    /* Sections (About, Start) */
+    /* Rows adjusted */
     .rows {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         text-align: center !important;
         justify-content: center !important;
-        height: 26vh !important; /* Adjusted */
+        height: 25vh !important; /* Smaller height */
         padding: 5px !important;
     }
 
@@ -73,25 +74,25 @@ body {
         justify-content: center !important;
         align-items: center !important;
         width: 100% !important;
-        margin-top: auto !important;
+        margin-top: 10px !important; /* Adjusted space above button */
     }
 
-    /* Bigger button */
+    /* Larger buttons but not overwhelming */
     .btn-lg {
-        max-width: 210px !important; /* Increased size */
-        padding: 14px !important; /* More padding */
-        font-size: 1.3em !important; /* Bigger text */
+        max-width: 180px !important;  /* Reduced width */
+        padding: 12px !important; /* More compact padding */
+        font-size: 1.2em !important; /* Reduced font size */
     }
 
-    /* Star icons in headings */
-    .glyphicon-star {
-        font-size: 0.85em !important; /* Slightly bigger */
-        margin: 0 5px !important;
-    }
-
-    /* Adjust heading sizes */
+    /* Adjust heading size */
     h1 {
-        font-size: 2.1em !important; /* Slightly bigger */
-        margin: 5px 0 !important;
+        font-size: 1.8em !important;  /* Smaller heading */
+        margin: 8px 0 !important; /* Reduced margin */
+    }
+
+    /* Optional: Reduce the size of any icons, too */
+    .glyphicon-star {
+        font-size: 0.6em !important;
+        margin: 0 4px !important;
     }
 }
