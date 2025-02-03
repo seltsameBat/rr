@@ -19,10 +19,10 @@ body {
   
   /* Mobile fixes */
 @media (max-width: 767px) {
-    /* Ensure full screen is used without extra space */
+    /* Allow slight scrolling if necessary */
     html, body {
         height: 100vh !important;
-        overflow: hidden !important;
+        overflow-y: auto !important; /* Enables minimal scrolling if needed */
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -30,7 +30,7 @@ body {
         padding: 0 !important;
     }
 
-    /* Navbar adjustments */
+    /* Navbar */
     .navbar {
         min-height: 35px !important;
         padding: 5px !important;
@@ -50,7 +50,7 @@ body {
         align-items: center;
         justify-content: center;
         text-align: center;
-        height: 30vh !important; /* Adjusted to avoid excess space */
+        height: 28vh !important; /* Reduced a little to make room */
         padding: 5px 0 !important;
         min-height: unset !important;
         margin: 5px auto !important;
@@ -63,11 +63,11 @@ body {
         align-items: center;
         text-align: center;
         justify-content: center;
-        height: 25vh !important; /* Adjusted to prevent scrolling */
+        height: 27vh !important; /* Slightly reduced */
         padding: 5px !important;
     }
 
-    /* Button container ensuring visibility */
+    /* Button container */
     .button-container {
         display: flex;
         justify-content: center;
@@ -76,21 +76,22 @@ body {
         margin-top: auto !important;
     }
 
-    /* Button styling */
+    /* Bigger button */
     .btn-lg {
-        max-width: 180px !important;
-        padding: 8px !important;
+        max-width: 200px !important; /* Increased size */
+        padding: 12px !important; /* More padding for better clickability */
+        font-size: 1.2em !important; /* Slightly larger text */
     }
 
     /* Star icons in headings */
     .glyphicon-star {
-        font-size: 0.7em;
+        font-size: 0.8em; /* Slightly bigger */
         margin: 0 5px;
     }
 
-    /* Adjust heading sizes for mobile */
+    /* Adjust heading sizes */
     h1 {
-        font-size: 1.8em !important;
+        font-size: 2em !important; /* Slightly bigger for balance */
         margin: 5px 0 !important;
     }
 }
