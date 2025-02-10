@@ -43,7 +43,7 @@ p {
   font-family: 'Papyrus', sans-serif;
   font-size: 1.6em;
   color: #47475c;
--webkit-text-stroke-width: 3px;
+-webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
 }
 
