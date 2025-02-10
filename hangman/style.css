@@ -42,8 +42,8 @@ h2 {
 p {
   font-family: 'Papyrus', sans-serif;
   font-size: 1.8em;
-  color: #B0B0C2;
--webkit-text-stroke-width: 1px;
+  color: white;
+-webkit-text-stroke-width: 2px;
   font-weight: 300;
 }
 
