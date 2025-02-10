@@ -42,7 +42,8 @@ h2 {
 p {
   font-family: 'Brandon Printed', sans-serif;
   font-size: 1.6em;
-  color: #49497d;
+  color: #867469;
+border: 2px solid #090910; 
 }
 
 #alphabet {
