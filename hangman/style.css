@@ -45,6 +45,7 @@ p {
   color: #47475c;
 -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
+  font-weight: 200;
 }
 
 #alphabet {
