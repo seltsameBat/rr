@@ -40,10 +40,10 @@ h2 {
 }
 
 p {
-  font-family: 'Brandon Printed', sans-serif;
+  font-family: 'Papyrus', sans-serif;
   font-size: 1.6em;
   color: #867469;
-border: 5px solid #000000; 
+font-weight: 900;
 }
 
 #alphabet {
