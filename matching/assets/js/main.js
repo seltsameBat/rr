@@ -250,9 +250,35 @@ this.hideCards();
 }
 
 // Level Up function
+// Updated function to show level-up information, star rating, and next level button
+function levelUp() {
+    clearInterval(this.countDown);
+    this.calculateStars(); // Calculate and display stars
 
-// Function to calculate and display stars based on remaining time
-calculateStars() {
+    this.currentLevel++;
+
+    // Display level-up info
+    document.getElementById('level-up-container').style.display = 'block';
+    document.getElementById('flips-count').innerText = `Flips: ${this.numFlips}`;
+    document.getElementById('time-taken').innerText = `Time taken: ${this.timeRemaining}s`;
+
+    if (this.currentLevel > 3) {
+        this.victory();
+        this.currentLevel = 1;
+    } else {
+        this.audioController.levelUpBuzz();
+        document.getElementById('level-up-text').classList.add('visible');
+    }
+
+    // Show the next level button
+    document.getElementById('next-level-btn').onclick = () => {
+        this.startNextLevel();
+        document.getElementById('level-up-container').style.display = 'none'; // Hide level-up display
+    };
+}
+
+// Modified function to calculate and display the stars
+function calculateStars() {
     const percentage = (this.timeRemaining / this.totalTime) * 100;
     let stars = 1; // Default is 1 star
 
@@ -262,25 +288,16 @@ calculateStars() {
         stars = 2;
     }
 
-    document.getElementById('star-rating').innerHTML = "⭐".repeat(stars); // Update star display
+    // Update star display
+    document.getElementById('star-rating').innerHTML = "⭐".repeat(stars);
 }
 
-
-levelUp() {
-    clearInterval(this.countDown);
-    this.calculateStars(); // Calculate and display stars
-
-    this.currentLevel++;
-
-    if (this.currentLevel > 3) {
-        this.victory();
-        this.currentLevel = 1;
-    } else {
-        this.audioController.levelUpBuzz();
-        document.getElementById('level-up-text').classList.add('visible');
-    }
+// Function to start the next level
+function startNextLevel() {
+    // Reset necessary values and start the next level's countdown or logic
+    this.resetLevel();
+    this.startLevel();
 }
-
 // Code snippet SOURCE: PORTEx Youtube- FisherYates shuffle algo.
 
 shuffleCards() {
