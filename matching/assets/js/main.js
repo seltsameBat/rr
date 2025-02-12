@@ -252,20 +252,40 @@ this.hideCards();
 // Level Up function
 
 levelUp() {
-clearInterval(this.countDown);
-this.currentLevel = this.currentLevel + 1;
+    clearInterval(this.countDown);
+    const stars = this.calculateStars();
 
+    // Show the rating pop-up
+    document.getElementById('rating-popup').classList.add('visible');
 
-if (this.currentLevel > 3) {
-  this.victory();
-  this.currentLevel = 1;
-} else {
-  this.audioController.levelUpBuzz();
-  document.getElementById('level-up-text').classList.add('visible');
+    // Update the star display
+    const starContainer = document.getElementById('rating-stars');
+    starContainer.innerHTML = ''; // Clear previous stars
+
+    for (let i = 0; i < 3; i++) {
+        const star = document.createElement('span');
+        star.classList.add('star');
+        if (i < stars) {
+            star.classList.add(stars === 3 ? 'gold' : stars === 2 ? 'silver' : 'bronze');
+        }
+        starContainer.appendChild(star);
+    }
+
+    // Update game stats
+    document.getElementById('rating-flips').innerText = `Flips: ${this.totalFlips}`;
+    document.getElementById('rating-time').innerText = `Time Spent: ${this.totalTime - this.timeRemaining} seconds`;
 }
 
+function nextLevel() {
+    document.getElementById('rating-popup').classList.remove('visible');
+    this.currentLevel++;
 
-
+    if (this.currentLevel > 3) {
+        this.victory();
+        this.currentLevel = 1;
+    } else {
+        this.startNewLevel();
+    }
 }
 
 // Code snippet SOURCE: PORTEx Youtube- FisherYates shuffle algo.
@@ -346,15 +366,16 @@ if (document.readyState === 'loading') {
 
 
 
-function calculateStars(timeTaken, level) {
-let timeLimit = levels[level - 1].timeLimit;
-if (timeTaken <= timeLimit * 0.5) {
-return 3; // 3 stars if completed in half the time or less
-} else if (timeTaken <= timeLimit * 0.8) {
-return 2; // 2 stars if completed within 80% of the time limit
-} else {
-return 1; // 1 star otherwise
-}
+calculateStars() {
+    const percentage = (this.timeRemaining / this.totalTime) * 100;
+
+    if (percentage >= 70) {
+        return 3; // Gold Rating
+    } else if (percentage >= 40) {
+        return 2; // Silver Rating
+    } else {
+        return 1; // Bronze Rating
+    }
 }
 
 // Function to update stars display
