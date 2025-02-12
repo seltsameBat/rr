@@ -250,30 +250,24 @@ this.hideCards();
 }
 
 // Level Up function
-// Updated function to show level-up information, star rating, and next level button
+
 levelUp() {
-    clearInterval(this.countDown);
-    this.calculateStars(); // Calculate and display stars
+clearInterval(this.countDown);
+this.currentLevel = this.currentLevel + 1;
 
-    this.currentLevel++;
 
-    if (this.currentLevel > 3) {
-        this.victory();
-        this.currentLevel = 1;
-    } else {
-        this.audioController.levelUpBuzz();
-        document.getElementById('level-up-text').classList.add('visible');
-    }
+if (this.currentLevel > 3) {
+  this.victory();
+  this.currentLevel = 1;
+} else {
+  this.audioController.levelUpBuzz();
+  document.getElementById('level-up-text').classList.add('visible');
 }
 
-// Modified function to calculate and display the stars
 
-// Function to start the next level
-function startNextLevel() {
-    // Reset necessary values and start the next level's countdown or logic
-    this.resetLevel();
-    this.startLevel();
+
 }
+
 // Code snippet SOURCE: PORTEx Youtube- FisherYates shuffle algo.
 
 shuffleCards() {
@@ -307,7 +301,7 @@ this.muted = false;
 
 function ready() {
 let overlays = Array.from(document.getElementsByClassName('overlay-text'));
-let game = new MemoryGame(100); //time for each level
+let game = new MemoryGame(60); //time for each level
 
 overlays.forEach(overlay => {
 overlay.addEventListener('click', () => {
@@ -347,4 +341,24 @@ if (document.readyState === 'loading') {
   document.addEventListener("DOMContentLoaded", ready);
 } else {
   ready();
+}
+
+
+
+
+function calculateStars(timeTaken, level) {
+let timeLimit = levels[level - 1].timeLimit;
+if (timeTaken <= timeLimit * 0.5) {
+return 3; // 3 stars if completed in half the time or less
+} else if (timeTaken <= timeLimit * 0.8) {
+return 2; // 2 stars if completed within 80% of the time limit
+} else {
+return 1; // 1 star otherwise
+}
+}
+
+// Function to update stars display
+function displayStars(level, timeTaken) {
+let stars = calculateStars(timeTaken, level);
+console.log(`Level ${level} completed with ${stars} stars!`);
 }
