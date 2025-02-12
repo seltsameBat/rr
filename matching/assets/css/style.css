@@ -295,8 +295,8 @@ body {
     }
 
     .card {
-        width: 7em !important;  /* Slightly smaller */
-        height: 7em !important; /* Adjust height */
+        width: 5em !important;  /* Slightly smaller */
+        height: 5em !important; /* Adjust height */
         flex: 0 0 auto;
     }
 
