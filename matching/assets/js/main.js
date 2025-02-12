@@ -251,16 +251,11 @@ this.hideCards();
 
 // Level Up function
 // Updated function to show level-up information, star rating, and next level button
-function levelUp() {
+levelUp() {
     clearInterval(this.countDown);
     this.calculateStars(); // Calculate and display stars
 
     this.currentLevel++;
-
-    // Display level-up info
-    document.getElementById('level-up-container').style.display = 'block';
-    document.getElementById('flips-count').innerText = `Flips: ${this.numFlips}`;
-    document.getElementById('time-taken').innerText = `Time taken: ${this.timeRemaining}s`;
 
     if (this.currentLevel > 3) {
         this.victory();
@@ -269,12 +264,6 @@ function levelUp() {
         this.audioController.levelUpBuzz();
         document.getElementById('level-up-text').classList.add('visible');
     }
-
-    // Show the next level button
-    document.getElementById('next-level-btn').onclick = () => {
-        this.startNextLevel();
-        document.getElementById('level-up-container').style.display = 'none'; // Hide level-up display
-    };
 }
 
 // Modified function to calculate and display the stars
