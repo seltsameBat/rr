@@ -301,7 +301,7 @@ this.muted = false;
 
 function ready() {
 let overlays = Array.from(document.getElementsByClassName('overlay-text'));
-let game = new MemoryGame(60); //time for each level
+let game = new MemoryGame(100); //time for each level
 
 overlays.forEach(overlay => {
 overlay.addEventListener('click', () => {
