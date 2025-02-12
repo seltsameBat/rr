@@ -263,14 +263,13 @@ levelUp() {
     starContainer.innerHTML = ''; // Clear previous stars
 
     for (let i = 0; i < 3; i++) {
-        const star = document.createElement('span');
-        star.classList.add('star');
-        if (i < stars) {
-            star.classList.add(stars === 3 ? 'gold' : stars === 2 ? 'silver' : 'bronze');
-        }
-        starContainer.appendChild(star);
+    const star = document.createElement('i');
+    star.classList.add('fa-solid', 'fa-star');
+    if (i < stars) {
+        star.classList.add(stars === 3 ? 'gold' : stars === 2 ? 'silver' : 'bronze');
     }
-
+    starContainer.appendChild(star);
+}
     // Update game stats
     document.getElementById('rating-flips').innerText = `Flips: ${this.totalFlips}`;
     document.getElementById('rating-time').innerText = `Time Spent: ${this.totalTime - this.timeRemaining} seconds`;
