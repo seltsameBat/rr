@@ -278,26 +278,6 @@ body {
 	max-height: 7em;
 }
 
-#level-up-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
-#star-rating {
-    font-size: 3em;
-    margin-bottom: 10px;
-}
-
-#flips-count, #time-taken {
-    font-size: 1.5em;
-    margin: 5px 0;
-}
-
-#next-level-btn {
-    padding: 10px 20px;
-    font-size: 1.2em;
-    cursor: pointer;
-}
 
 /* --media queries-- */
 
