@@ -267,19 +267,6 @@ levelUp() {
 }
 
 // Modified function to calculate and display the stars
-function calculateStars() {
-    const percentage = (this.timeRemaining / this.totalTime) * 100;
-    let stars = 1; // Default is 1 star
-
-    if (percentage >= 70) {
-        stars = 3;
-    } else if (percentage >= 40) {
-        stars = 2;
-    }
-
-    // Update star display
-    document.getElementById('star-rating').innerHTML = "⭐".repeat(stars);
-}
 
 // Function to start the next level
 function startNextLevel() {
