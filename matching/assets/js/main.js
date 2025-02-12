@@ -346,19 +346,41 @@ if (document.readyState === 'loading') {
 
 
 
-function calculateStars(timeTaken, level) {
-let timeLimit = levels[level - 1].timeLimit;
-if (timeTaken <= timeLimit * 0.5) {
-return 3; // 3 stars if completed in half the time or less
-} else if (timeTaken <= timeLimit * 0.8) {
-return 2; // 2 stars if completed within 80% of the time limit
-} else {
-return 1; // 1 star otherwise
-}
+  levelComplete() {
+        let timeTaken = (new Date().getTime() - this.startTime) / 1000;
+        let stars = this.calculateStars(timeTaken);
+        
+        alert(`Level Complete! You earned ${stars} stars in ${timeTaken.toFixed(2)} seconds.`);
+
+        this.currentLevel++;
+        if (this.currentLevel < this.levels.length) {
+            this.loadLevel();
+        } else {
+            alert("Congratulations! You've completed all levels.");
+            this.restartGame();
+        }
+    }
+
+    calculateStars(time) {
+        if (time < 10) return 3;
+        if (time < 20) return 2;
+        return 1;
+    }
+
+    restartGame() {
+        this.currentLevel = 0;
+        this.loadLevel();
+    }
+
+    shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
 }
 
-// Function to update stars display
-function displayStars(level, timeTaken) {
-let stars = calculateStars(timeTaken, level);
-console.log(`Level ${level} completed with ${stars} stars!`);
-}
+document.addEventListener("DOMContentLoaded", () => {
+    new MemoryGame();
+});
