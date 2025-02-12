@@ -251,21 +251,34 @@ this.hideCards();
 
 // Level Up function
 
-levelUp() {
-clearInterval(this.countDown);
-this.currentLevel = this.currentLevel + 1;
+// Function to calculate and display stars based on remaining time
+calculateStars() {
+    const percentage = (this.timeRemaining / this.totalTime) * 100;
+    let stars = 1; // Default is 1 star
 
+    if (percentage >= 70) {
+        stars = 3;
+    } else if (percentage >= 40) {
+        stars = 2;
+    }
 
-if (this.currentLevel > 3) {
-  this.victory();
-  this.currentLevel = 1;
-} else {
-  this.audioController.levelUpBuzz();
-  document.getElementById('level-up-text').classList.add('visible');
+    document.getElementById('star-rating').innerHTML = "⭐".repeat(stars); // Update star display
 }
 
 
+levelUp() {
+    clearInterval(this.countDown);
+    this.calculateStars(); // Calculate and display stars
 
+    this.currentLevel++;
+
+    if (this.currentLevel > 3) {
+        this.victory();
+        this.currentLevel = 1;
+    } else {
+        this.audioController.levelUpBuzz();
+        document.getElementById('level-up-text').classList.add('visible');
+    }
 }
 
 // Code snippet SOURCE: PORTEx Youtube- FisherYates shuffle algo.
@@ -342,45 +355,3 @@ if (document.readyState === 'loading') {
 } else {
   ready();
 }
-
-
-
-
-  levelComplete() {
-        let timeTaken = (new Date().getTime() - this.startTime) / 1000;
-        let stars = this.calculateStars(timeTaken);
-        
-        alert(`Level Complete! You earned ${stars} stars in ${timeTaken.toFixed(2)} seconds.`);
-
-        this.currentLevel++;
-        if (this.currentLevel < this.levels.length) {
-            this.loadLevel();
-        } else {
-            alert("Congratulations! You've completed all levels.");
-            this.restartGame();
-        }
-    }
-
-    calculateStars(time) {
-        if (time < 10) return 3;
-        if (time < 20) return 2;
-        return 1;
-    }
-
-    restartGame() {
-        this.currentLevel = 0;
-        this.loadLevel();
-    }
-
-    shuffle(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            let j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-    }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    new MemoryGame();
-});
