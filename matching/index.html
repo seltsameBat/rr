@@ -29,11 +29,16 @@
             <p>Play Again</p>
          </div>
       </div>
-      <!-- Level Up Overlay -->
-      <div class="overlay-text" id="level-up-text">
-         Level Up
-   <span class="overlay-text-small">Click to play</span>
-      </div>
+      <!-- Level Completion Pop-up -->
+<div id="rating-popup" class="popup">
+   <h2>Level Completed!</h2>
+   <div id="rating-stars" class="stars-container">
+      <!-- Stars will be dynamically added here -->
+   </div>
+   <p id="rating-flips">Flips: 0</p>  
+   <p id="rating-time">Time Spent: 0s</p>    
+   <button onclick="nextLevel()" class="btn btn-primary">Next Level</button>
+</div>
       <!-- Victory overlay -->
       <div class="overlay-refresh" id="victory-text">
          You Won
