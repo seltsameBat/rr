@@ -278,6 +278,22 @@ body {
 	max-height: 7em;
 }
 
+#stars {
+    display: flex;
+    gap: 5px;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.star {
+    color: gray;
+    transition: color 0.3s ease-in-out;
+}
+
+.star:hover,
+.star.active {
+    color: gold;
+}
 
 /* --media queries-- */
 
