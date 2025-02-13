@@ -131,7 +131,7 @@ generateCards() {
       <div class="card">
           <div class="card-back card-face">
               <img src="assets/images
-/dog.jpg" alt="card ack" class="card-img">
+/dog.JPG" alt="card ack" class="card-img">
           </div>
           <div class="card-front card-face">
               <img class="card-value card-img" src="${href}" alt="jungle-books-image">
