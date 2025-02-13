@@ -1,0 +1,384 @@
+@font-face {
+	font-family: "Egyptian Nights";
+	src: url("../fonts/EgyptianNights-yAOV.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "DJB Get Digital";
+	src: url("../fonts/DJB\ Get\ Digital.ttf");
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+body {
+	margin: 0;
+	background-color: rgb(107, 59, 79);
+	height: 100vh;
+	width: 100%;
+	
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	}
+.page-header {
+	color: #ceb18b;
+	font-family: "DJB Get Digital";
+	text-align: center;
+	font-size: 3.5em;
+	letter-spacing: 0.1em;
+}
+
+
+/* --Sound Toggler */
+
+.btn {
+	border: none;
+	border-radius: 50px;
+	background-color: #939097;
+	margin-top: 5px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 2em;
+	width: 2.2em;
+	margin-left: .5em;
+	cursor: pointer;
+}
+
+.btn:hover {
+	background-color: #7c7a80;
+}
+
+.soundOn {
+	background-image: url("https://res.cloudinary.com/ktm28/image/upload/c_scale,w_28/v1588692544/Jungle_book/unmute-icon.png");
+}
+
+.soundOff {
+	background-image: url("https://res.cloudinary.com/ktm28/image/upload/c_scale,h_32,w_28/v1588692539/Jungle_book/mute-icon.png");
+}
+
+
+/* --Game Area-- */
+
+.game-info-container {
+	grid-column: 1 / -1;
+	display: flex;
+	justify-content: space-between;
+	/* Removed invalid HTML tag */
+}
+
+.game-container {
+	display: grid;
+	grid-template-columns: repeat(4, auto);
+	gap: 10px;
+	margin-top: 25px;
+	justify-content: center;
+	perspective: 1000px;
+
+}
+
+.game-info {
+	color: #b87b97;
+	font-size: 2em;
+	font-family: "DJB Get Digital", sans-serif;
+}
+
+.digital-ttf {
+	font-family: "DJB Get Digital", sans-serif;
+	color: #a18099;
+}
+
+
+/* --Overlays-- */
+
+.overlay-text {
+	display: none;
+	color: #aa93aa;
+	
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	justify-content: center;
+	align-items: center;
+	z-index: 100;
+	text-shadow: 3px 3px 6px rgba(243, 231, 231, 0.24);
+	cursor: pointer;
+	font-family: "Egyptian Nights", sans-serif;
+}
+
+.overlay-refresh {
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	justify-content: center;
+	align-items: center;
+	z-index: 100;
+	font-family: "Egyptian Nights", sans-serif;
+	color: #aa93aa;
+}
+
+.overlay-text-small {
+	font-size: 1em;
+	font-family: "Egyptian Nights", sans-serif;
+}
+
+.instruction-text {
+	color: #ceb18b;
+	font-size: 0.5em;
+}
+
+.overlay-img {
+	position: relative;
+	width: 30%;
+	animation: tiger 500ms forwards;
+	animation-timing-function: ease-in;
+}
+
+@keyframes tiger {
+	from {
+		width: 0%;
+	}
+	to {
+		width: 30%;
+	}
+}
+
+.overlay-text.visible {
+	display: flex;
+	flex-direction: column;
+	animation: overlay-grow 600ms forwards;
+}
+
+.overlay-refresh.visible {
+	display: flex;
+	flex-direction: column;
+	animation: overlay-grow 600ms forwards;
+}
+
+@keyframes overlay-grow {
+	from {
+		background-color: #240a17;
+		font-size: 0;
+	}
+	to {
+		background-color: #240a17;
+		font-size: 4em;
+	}
+}
+
+
+/* --Overlay btn-- */
+
+.overlay-btn {
+	position: relative;
+	display: inline-block;
+	font-size: 22px;
+	padding: 20px 60px;
+	margin: 20px 10px 10px;
+	border-radius: 6px;
+	text-align: center;
+	transition: top .01s linear;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+	background-color: #c1b0ce;
+	box-shadow: 0 0 0 1px #4e464e inset, 0 0 0 2px #4e464e inset, 0 8px 0 0 rgba(36, 39, 43, 0.637), 0 8px 0 1px rgba(75, 73, 73, 0.4), 0 8px 8px 1px rgba(97, 96, 96, 0.5);
+	cursor: pointer;
+}
+
+.overlay-btn:hover {
+	background-color: #333832;
+}
+
+.overlay-btn:active {
+	top: 9px;
+	box-shadow: 0 0 0 1px #9a64a1 inset, 0 0 0 2px rgba(255, 255, 255, 0.233) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+
+.overlay-btn p {
+	font-family: "DJB Get Digital", sans-serif;
+	text-align: center;
+	font-size: 30px;
+	text-transform: uppercase;
+	color: #756c86;
+	user-select: none;
+}
+
+
+/* --Cards-- */
+
+.card {
+	position: relative;
+	height: 7em;
+	width: 7em;
+	transition: transform 1000ms ease-in-out;
+	cursor: pointer;
+}
+
+.card-face {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	background: rgb(206, 201, 188);
+	position: absolute;
+	backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	transition: transform 500ms ease-in-out;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	border-radius: 12px;
+	border-style: solid;
+}
+
+.card-back {
+	transform: rotateY(0);
+	-moz-transform: rotateY(0);
+	-o-transform: rotateY(-0);
+	-ms-transform: rotateY(0);
+	-webkit-transform: rotateY(0);
+}
+
+.card.visible .card-back {
+	transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+}
+
+.card-front {
+	transform: rotateY(-180deg);
+	-moz-transform: rotateY(-180deg);
+	-o-transform: rotateY(-180deg);
+	-ms-transform: rotateY(-180deg);
+	-webkit-transform: rotateY(-180deg);
+}
+
+.card.visible .card-front {
+	transform: rotateY(0);
+	-moz-transform: rotateY(0);
+	-o-transform: rotateY(-0);
+	-ms-transform: rotateY(0);
+	-webkit-transform: rotateY(0);
+}
+
+.card-img {
+	max-width: 7em;
+	max-height: 7em;
+}
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(192, 222, 228);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    display: none; /* Hidden by default */
+    z-index: 1000;
+}
+
+.popup.active {
+    display: block; /* Shows pop-up */
+}
+
+.stars-container {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.star {
+    font-size: 2rem;
+    color: gray;
+}
+
+.star.filled {
+    color: rgb(255, 208, 0);
+}
+
+
+#rating-flips,
+#rating-time {
+    font-size: 18px;
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background: #47706e;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background: #171e25;
+}
+
+/* --media queries-- */
+
+@media (max-width: 600px) {
+  .game-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-height: 70vh; /* Prevents excessive height */
+        overflow-y: auto; /* Allows scrolling only inside container if needed */
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .card {
+        width: 6em !important;  /* Slightly smaller */
+        height: 6em !important; /* Adjust height */
+        flex: 0 0 auto;
+    }
+
+    .game-info-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        bottom: 0;
+        padding-bottom: 10px;
+    }
+
+   
+	.game-info {
+	
+		text-align: center;
+		font-size: 1.5em;
+		display: block;
+	}
+	
+	.page-header {
+	
+		font-family: "DJB Get Digital", sans-serif;
+		text-align: center;
+		letter-spacing: 0.1em;
+		font-size: 1.8em;
+	}
+}

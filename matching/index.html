@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+      <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+      <link rel="stylesheet" href="assets/css/style.css">
+       
+      <title>Memory Game</title>
+   </head>
+   <body >
+      <!-- page header -->
+      <header>
+         <h1 class="page-header">matching cards <button id="soundToggler" onclick="soundIcon()"
+            class="btn soundOn"></button></h1>
+      </header>
+      <!--Game start overlay  -->
+      <div class="overlay-text visible">
+         <img src="assets/images/flower.png"
+            alt="JungleBook image" class="overlay-img"> Click to Start
+         <span class="instruction-text">Match all cards to win</span>
+      </div>
+      <!-- GameOver overlay -->
+      <div class="overlay-refresh" id="game-over-text">
+         Game Over
+         <div id="gameOverBtn" class="overlay-btn">
+            <p>Play Again</p>
+         </div>
+      </div>
+      <!-- Level Completion Pop-up -->
+      <div id="level-up-popup" class="popup">
+         <h2>Level Completed!</h2>
+         <div id="star-container" class="stars-container"></div>
+         <p id="rating-flips"></p>
+         <p id="rating-time"></p>
+         <button class="btn-primary" onclick="nextLevel()">Next Level</button>
+      </div>
+      <!-- Victory overlay -->
+      <div class="overlay-refresh" id="victory-text">
+         You Won
+         <div id="victoryBtn" class="overlay-btn">
+            <p>Play Again</p>
+         </div>
+      </div>
+      <!-- Game Area -->
+      
+      <div class="game-container">
+       
+         <div class="game-info-container">
+            <div class="game-info">
+               Time: <span id="time-remaining" class="digital-ttf"></span>
+            </div>
+
+            <div class="game-info">
+               Flips: <span id="flips" class="digital-ttf">0</span>
+            </div>
+         </div>
+         <div class="card-container game-container"></div>
+         
+      </div>
+   
+      <!-- Script file -->
+      <script src="assets/js/main.js" async></script>
+   </body>
+</html>
