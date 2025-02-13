@@ -330,21 +330,7 @@ unmute() {
 this.audioController.startMusic();
 this.muted = false;
 }
- 
-adjustCardSize() {
-let container = document.querySelector('.game-container');
-let cards = document.querySelectorAll('.card');
- level = this.currentLevel;
-let cardSize = level === 1 ? 7 : level === 2 ? 6 : level === 3 ? 5.5 : 5;
 
-cards.forEach(card => {
-    card.style.width = `${cardSize}em`;
-    card.style.height = `${cardSize}em`;
-});
-
-// Adjust container size to prevent scrolling
-container.style.height = `${window.innerHeight * 0.8}px`;
-}
 // Call this after level-up
 nextLevel() {
     document.getElementById('level-up-popup').classList.remove('active');
