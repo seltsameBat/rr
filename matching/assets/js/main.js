@@ -127,15 +127,15 @@ generateCards() {
   
 
 
-  cards.forEach(href => insertCard.innerHTML += `
+ cards.forEach(href => insertCard.innerHTML +=
       <div class="card">
           <div class="card-back card-face">
-              <img src="assets/js/images/dog.jpg" alt="card ack" class="card-img">
+              <img src="assets/js/images/dog.jpg" alt="card ack" class="card-img" />
           </div>
           <div class="card-front card-face">
-              <img class="card-value card-img" src="${href}" alt="jungle-books-image">
+              <img class="card-value card-img" src="${href}" alt="jungle-books-image" />
           </div>
-      </div>`);
+      </div>);
   
   this.cardsArray = Array.from(document.getElementsByClassName('card'));
   
