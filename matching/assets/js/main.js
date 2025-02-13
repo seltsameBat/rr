@@ -301,7 +301,12 @@ levelUp() {
   popup.classList.add('active'); // Ensure this makes the popup visible
 }
 
-
+function updateLevel() {
+    const container = document.querySelector('.card-container');
+    requestAnimationFrame(() => {
+        container.scrollTop = 0; // Resets any scroll movement
+    });
+}
 
 
 // Code snippet SOURCE: PORTEx Youtube- FisherYates shuffle algo.
