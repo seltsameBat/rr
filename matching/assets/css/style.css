@@ -338,7 +338,7 @@ body {
 
 @media (max-width: 600px) {
   .game-container {
-        display: flex;
+        
          display: grid; /* or flex */
     justify-content: center;
     align-items: center;
