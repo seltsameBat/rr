@@ -340,7 +340,7 @@ adjustCardSize() {
 
     container.style.gridTemplateRows = `repeat(${rows}, auto)`; // Adjust rows dynamically
 
-    let baseSize  6; // Base size in em
+    let baseSize  =6; // Base size in em
     let sizeFactor = 1 - (this.currentLevel - 1) * 0.005; // Small reduction per level
     let newSize = baseSize * sizeFactor;
 
@@ -365,7 +365,7 @@ nextLevel() {
         this.startGame();
         setTimeout(() => this.adjustCardSize(), 100); // Ensures layout updates correctly
     }
-
+}
 }
 
 function ready() {
