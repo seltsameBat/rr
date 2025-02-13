@@ -331,27 +331,7 @@ this.audioController.startMusic();
 this.muted = false;
 }
  
-adjustCardSize() {
-    let container = document.querySelector('.game-container');
-    let cards = document.querySelectorAll('.card');
 
-    let totalCards = this.cardsArray.length;
-    let rows = Math.ceil(totalCards / 4); // Always 4 columns, so rows = totalCards / 4
-
-    container.style.gridTemplateRows = `repeat(${rows}, auto)`; // Rows adjust dynamically
-
-    let baseSize = 6; // Base size in em
-    let sizeFactor = 1 - (this.currentLevel - 1) * 0.02; // Small reduction per level
-    let newSize = baseSize * sizeFactor;
-
-    cards.forEach(card => {
-        card.style.width = `${newSize}em`;
-        card.style.height = `${newSize}em`;
-    });
-
-    // Ensure proper scrolling behavior
-    container.style.overflowY = rows > 5 ? "scroll" : "auto"; // Enable scroll only if needed
-}
 
 // Call this after level-up
 nextLevel() {
@@ -364,7 +344,7 @@ nextLevel() {
     } else {
         this.audioController.levelUpBuzz();
         this.startGame();
-        setTimeout(() => this.adjustCardSize(), 100); // Ensures layout updates correctly
+       
     }
 }
 }
