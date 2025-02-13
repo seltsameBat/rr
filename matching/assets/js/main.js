@@ -334,32 +334,36 @@ this.muted = false;
 adjustCardSize() {
     let container = document.querySelector('.game-container');
     let cards = document.querySelectorAll('.card');
-   
-let level = this.currentLevel;
-let cardSize = level === 1 ? 7 : level === 2 ? 6 : level === 3 ? 5.5 : 5;
 
-cards.forEach(card => {
-    card.style.width = `${cardSize}em`;
-    card.style.height = `${cardSize}em`;
-});
+    // Adjust based on level
+    let baseSize = window.innerWidth < 600 ? 22 : 7; // Smaller cards on mobile
+    let sizeFactor = 1 - (this.currentLevel - 1) * 0.1; // Reduce size slightly per level
+    let newSize = baseSize * sizeFactor;
 
-// Adjust container size to prevent scrolling
-container.style.height = `${window.innerHeight * 0.2}px`; // Keep within viewport
+    cards.forEach(card => {
+        card.style.width = `${newSize}vw`;
+        card.style.height = `${newSize}vw`;
+        card.style.maxWidth = `${newSize * 0.7}em`;
+        card.style.maxHeight = `${newSize * 0.7}em`;
+    });
+
+    // Dynamically adjust container size to prevent gaps
+    container.style.height = "auto";
 }
- 
+
+// Call this after level up
 nextLevel() {
-    document.getElementById('level-up-popup').classList.remove('active'); // Hide pop-up
+    document.getElementById('level-up-popup').classList.remove('active');
     this.currentLevel++;
+
     if (this.currentLevel > 3) {
         this.victory();
         this.currentLevel = 1;
     } else {
         this.audioController.levelUpBuzz();
         this.startGame();
-        this.adjustCardSize(); // Adjust card size dynamically
+        setTimeout(() => this.adjustCardSize(), 100); // Adjust size after re-rendering
     }
-    
-
 }
 }
 
