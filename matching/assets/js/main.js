@@ -332,7 +332,12 @@ unmute() {
 this.audioController.startMusic();
 this.muted = false;
 }
-
+function updateLevel() {
+    const container = document.querySelector('.card-container');
+    requestAnimationFrame(() => {
+        container.scrollTop = 0; // Resets any scroll movement
+    });
+}
 // Call this after level-up
 nextLevel() {
     document.getElementById('level-up-popup').classList.remove('active');
@@ -347,6 +352,7 @@ nextLevel() {
        
     }
 }
+
 }
 
 function ready() {
