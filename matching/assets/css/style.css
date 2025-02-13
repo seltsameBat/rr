@@ -337,22 +337,22 @@ body {
 /* --media queries-- */
 
 @media (max-width: 600px) {
-     .game-container {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr); /* Always 4 columns */
-      /* Small gap to keep it tight */
-        width: 100%;
-
-								max-height:70vh;
+  .game-container {
+        display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        padding: 5px;
-        overflow: hidden;
+        width: 100%;
+        max-height: 70vh; /* Prevents excessive height */
+        overflow-y: auto; /* Allows scrolling only inside container if needed */
+        padding: 10px;
+        gap: 8px;
     }
 
     .card {
-        width: 6em;
-        height: 6em;
+        width: 6em !important;  /* Slightly smaller */
+        height: 6em !important; /* Adjust height */
+        flex: 0 0 auto;
     }
 
 
