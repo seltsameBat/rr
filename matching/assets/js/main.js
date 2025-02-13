@@ -338,7 +338,7 @@ nextLevel() {
     document.getElementById('level-up-popup').classList.remove('active');
     this.currentLevel++;
 
-    if (this.currentLevel > 3) {
+    if (this.currentLevel > 5) {
         this.victory();
         this.currentLevel = 1;
     } else {
