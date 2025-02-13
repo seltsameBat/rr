@@ -330,17 +330,36 @@ unmute() {
 this.audioController.startMusic();
 this.muted = false;
 }
- nextLevel() {
-  document.getElementById('level-up-popup').classList.remove('active'); // Hide pop-up
+ 
+adjustCardSize() {
+    let container = document.querySelector('.game-container');
+    let cards = document.querySelectorAll('.card');
+   
+let level = this.currentLevel;
+let cardSize = level === 1 ? 7 : level === 2 ? 6 : level === 3 ? 5.5 : 5;
 
-  this.currentLevel++;
-  if (this.currentLevel > 3) {
-      this.victory();
-      this.currentLevel = 1;
-  } else {
-      this.audioController.levelUpBuzz();
-      this.startGame(); // Restart game logic for the next level
-  }
+cards.forEach(card => {
+    card.style.width = `${cardSize}em`;
+    card.style.height = `${cardSize}em`;
+});
+
+// Adjust container size to prevent scrolling
+container.style.height = `${window.innerHeight * 0.8}px`; // Keep within viewport
+}
+ 
+nextLevel() {
+    document.getElementById('level-up-popup').classList.remove('active'); // Hide pop-up
+    this.currentLevel++;
+    if (this.currentLevel > 3) {
+        this.victory();
+        this.currentLevel = 1;
+    } else {
+        this.audioController.levelUpBuzz();
+        this.startGame();
+        this.adjustCardSize(); // Adjust card size dynamically
+    }
+    
+
 }
 }
 
