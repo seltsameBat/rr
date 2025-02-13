@@ -337,9 +337,8 @@ body {
 /* --media queries-- */
 
 @media (max-width: 600px) {
-   .game-container {
-        display: grid;
-	grid-template-column: repeat(3,auto);
+  .game-container {
+        display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
