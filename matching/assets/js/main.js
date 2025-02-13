@@ -365,7 +365,7 @@ nextLevel() {
         this.startGame();
         setTimeout(() => this.adjustCardSize(), 100); // Ensures layout updates correctly
     }
-}
+
 }
 
 function ready() {
