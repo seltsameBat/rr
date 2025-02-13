@@ -340,8 +340,8 @@ adjustCardSize() {
 
     container.style.gridTemplateRows = `repeat(${rows}, auto)`; // Adjust rows dynamically
 
-    let baseSize = 5; // Base size in em
-    let sizeFactor = 1 - (this.currentLevel - 1) * 0.05; // Small reduction per level
+    let baseSize  6; // Base size in em
+    let sizeFactor = 1 - (this.currentLevel - 1) * 0.005; // Small reduction per level
     let newSize = baseSize * sizeFactor;
 
     cards.forEach(card => {
