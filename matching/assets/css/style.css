@@ -339,7 +339,7 @@ body {
 @media (max-width: 600px) {
    .game-container {
         display: grid;
-	grid-template-column: repeat(4,auto);
+	grid-template-column: repeat(3,auto);
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
