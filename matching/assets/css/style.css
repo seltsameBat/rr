@@ -339,23 +339,25 @@ body {
 @media (max-width: 600px) {
   .game-container {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        max-height: 70vh; /* Prevents excessive height */
-        overflow-y: auto; /* Allows scrolling only inside container if needed */
-        padding: 10px;
-        gap: 8px;
+         display: grid; /* or flex */
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensures it takes the full height */
+    width: 100vw; /* Ensures it takes the full width */
+    overflow: hidden;
     }
-}
+
 
 .card {
     width: 6em;
     height: 6em;
 }
 
-
+html, body {
+    overflow: hidden; /* Prevents scrolling */
+    height: 100vh; /* Ensures full viewport height */
+    margin: 0;
+}
 
     .game-info-container {
         display: flex;
