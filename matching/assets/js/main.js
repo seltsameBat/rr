@@ -344,7 +344,7 @@ cards.forEach(card => {
 });
 
 // Adjust container size to prevent scrolling
-container.style.height = `${window.innerHeight * 0.8}px`; // Keep within viewport
+container.style.height = `${window.innerHeight * 0.2}px`; // Keep within viewport
 }
  
 nextLevel() {
