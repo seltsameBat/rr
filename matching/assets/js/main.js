@@ -338,10 +338,10 @@ adjustCardSize() {
     let totalCards = this.cardsArray.length;
     let rows = Math.ceil(totalCards / 4); // Always 4 columns, so rows = totalCards / 4
 
-    container.style.gridTemplateRows = `repeat(${rows}, auto)`; // Adjust rows dynamically
+    container.style.gridTemplateRows = `repeat(${rows}, auto)`; // Rows adjust dynamically
 
-    let baseSize  =6; // Base size in em
-    let sizeFactor = 1 - (this.currentLevel - 1) * 0.005; // Small reduction per level
+    let baseSize = 6; // Base size in em
+    let sizeFactor = 1 - (this.currentLevel - 1) * 0.02; // Small reduction per level
     let newSize = baseSize * sizeFactor;
 
     cards.forEach(card => {
@@ -349,7 +349,8 @@ adjustCardSize() {
         card.style.height = `${newSize}em`;
     });
 
-    container.style.height = "auto"; // Prevents unnecessary scroll
+    // Ensure proper scrolling behavior
+    container.style.overflowY = rows > 5 ? "scroll" : "auto"; // Enable scroll only if needed
 }
 
 // Call this after level-up
