@@ -335,23 +335,24 @@ adjustCardSize() {
     let container = document.querySelector('.game-container');
     let cards = document.querySelectorAll('.card');
 
-    // Adjust based on level
-    let baseSize = window.innerWidth < 600 ? 22 : 7; // Smaller cards on mobile
-    let sizeFactor = 1 - (this.currentLevel - 1) * 0.1; // Reduce size slightly per level
+    let totalCards = this.cardsArray.length;
+    let rows = Math.ceil(totalCards / 4); // Always 4 columns, so rows = totalCards / 4
+
+    container.style.gridTemplateRows = `repeat(${rows}, auto)`; // Adjust rows dynamically
+
+    let baseSize = 5; // Base size in em
+    let sizeFactor = 1 - (this.currentLevel - 1) * 0.05; // Small reduction per level
     let newSize = baseSize * sizeFactor;
 
     cards.forEach(card => {
-        card.style.width = `${newSize}vw`;
-        card.style.height = `${newSize}vw`;
-        card.style.maxWidth = `${newSize * 0.7}em`;
-        card.style.maxHeight = `${newSize * 0.7}em`;
+        card.style.width = `${newSize}em`;
+        card.style.height = `${newSize}em`;
     });
 
-    // Dynamically adjust container size to prevent gaps
-    container.style.height = "auto";
+    container.style.height = "auto"; // Prevents unnecessary scroll
 }
 
-// Call this after level up
+// Call this after level-up
 nextLevel() {
     document.getElementById('level-up-popup').classList.remove('active');
     this.currentLevel++;
@@ -362,7 +363,7 @@ nextLevel() {
     } else {
         this.audioController.levelUpBuzz();
         this.startGame();
-        setTimeout(() => this.adjustCardSize(), 100); // Adjust size after re-rendering
+        setTimeout(() => this.adjustCardSize(), 100); // Ensures layout updates correctly
     }
 }
 }
