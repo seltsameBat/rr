@@ -96,13 +96,32 @@ class AudioController {
   
         case 3:
             // Define the image URLs for level 3
-            let imagesLevel3 = ["URL9", "URL10", "URL11", "URL12"];
+            let imagesLevel3 = [
+                "assets/images/oo0.jpeg",
+               "assets/images/oo1.jpeg",
+               "assets/images/oo2.png",
+                "assets/images/oo3.jpeg",
+                "assets/images/oo4.jpeg",
+                "assets/images/oo5.jpeg",
+                "assets/images/oo6.jpeg",
+                 "assets/images/oo7.jpeg",
+                   "assets/images/z.jpeg"     ];
             // Duplicate the array for level 3
             return imagesLevel3.concat(imagesLevel3); // Concatenate to duplicate the array
   
         case 4:
             // Define the image URLs for level 4
-            let imagesLevel4 = ["URL13", "URL14", "URL15", "URL16"];
+            let imagesLevel4 = [
+                "assets/images/oo0.jpeg",
+               "assets/images/oo1.jpeg",
+               "assets/images/oo2.png",
+                "assets/images/oo3.jpeg",
+                "assets/images/oo4.jpeg",
+                "assets/images/oo5.jpeg",
+                "assets/images/oo6.jpeg",
+                 "assets/images/oo7.jpeg",
+                   "assets/images/z.jpeg",
+                      "assets/images/i.png"];
             // Duplicate the array for level 4
             return imagesLevel4.concat(imagesLevel4); // Concatenate to duplicate the array
   
